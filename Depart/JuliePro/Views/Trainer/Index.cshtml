@@ -4,7 +4,39 @@
     ViewData["Title"] = @Locals["Index"];
 }
 
+@section Scripts
+{
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            /**********Partie2************ */
+            function mouseEnter() {
+                //Enlever la class "unshow"à l'élément aside
+                // ajouter la class "show" à l'élément aside
+                $(this).find("aside").removeClass("unshow").addClass("show");
+            }
+            function mouseLeave() {
+                //Enlever la class "show"à l'élément aside
+                // ajouter la class "unshow" à l'élément aside
+                $(this).find("aside").removeClass("show").addClass("unshow");
+            }
 
+            $(".card").hover(mouseEnter, mouseLeave);
+
+            /**********Partie3****/
+            $(".page-link").on('click', (evt) => {
+                // Étape 1: Obtenir la valeur du data-page-id de l'élément sur lequel l'utilisateur a cliqué.
+                var pageId = $(evt.target).data('page-id');
+
+                // Étape 2: Obtenir l'élément qui contient l'information du SelectedPageIndex
+                // Étape 3: Modifier la valeur de l'élément à la valeur du data-page-id cliqué
+                $("input[name='SelectedPageIndex']").val(pageId);
+
+                $('#filterForm').submit();
+            });
+        });
+    </script>
+}
 
 
 <div class="wrapper">
