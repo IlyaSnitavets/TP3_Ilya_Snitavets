@@ -24,14 +24,14 @@
             $(".card").hover(mouseEnter, mouseLeave);
 
             /**********Partie3****/
-            $(".page-link").on('click', (evt) => {
+            $(".page-link").on('click', function () {
                 // Étape 1: Obtenir la valeur du data-page-id de l'élément sur lequel l'utilisateur a cliqué.
-                var pageId = $(evt.target).data('page-id');
+                var pageId = $(this).data('page-id');
 
-                // Étape 2: Obtenir l'élément qui contient l'information du SelectedPageIndex
-                // Étape 3: Modifier la valeur de l'élément à la valeur du data-page-id cliqué
+                // Étape 2: Modifier la valeur de l'élément à la valeur du data-page-id cliqué
                 $("input[name='SelectedPageIndex']").val(pageId);
 
+                // Étape 3: Soumettre le formulaire
                 $('#filterForm').submit();
             });
         });
