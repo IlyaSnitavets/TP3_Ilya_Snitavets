@@ -41,6 +41,9 @@ namespace JuliePro.Controllers
             return View(nameof(Index), trainers); 
         }
 
+       
+
+
 
         // GET: Trainer/Details/5
         public async Task<IActionResult> Details(int? id)
